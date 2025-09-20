@@ -1,11 +1,20 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+import RevoGrid from '@revolist/vue3-datagrid'
+const columns = ref([
+    { prop: 'name', name: 'A' },
+    { prop: 'details', name: 'B' },
+])
+const rows = ref([
+    {
+        name: '1',
+        details: 'Item 1',
+    },
+])
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+    <RevoGrid :columns="columns" :source="rows" />
 </template>
 
 <style scoped></style>
