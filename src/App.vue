@@ -1,20 +1,31 @@
 <script setup>
-import { ref } from 'vue'
-import RevoGrid from '@revolist/vue3-datagrid'
-const columns = ref([
-    { prop: 'name', name: 'A' },
-    { prop: 'details', name: 'B' },
-])
-const rows = ref([
-    {
-        name: '1',
-        details: 'Item 1',
-    },
-])
+ function test(){
+
+ }
 </script>
 
 <template>
-    <RevoGrid :columns="columns" :source="rows" />
+<table>
+  <tr>
+    <th>Hobby</th>
+    <th>Date</th>
+  </tr>
+  <tr>
+    <td>Essay due</td>
+    <td>9/20/2025</td>
+  </tr>
+  <tr>
+    <td>Birthday</td>
+    <td>9/25/2025</td>
+  </tr>
+  <button @click="test">TEST</button>
+</table>
 </template>
 
-<style scoped></style>
+<style scoped>
+table{
+  width: 40%;
+  border:1px solid black;
+  margin: 50px auto;
+}
+</style>
