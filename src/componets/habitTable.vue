@@ -1,25 +1,46 @@
 <script setup>
+import { ref } from 'vue'
 
+const newHabit = ref('')
+const habits = ref([])
+
+function addHabit() {
+  if (!newHabit.value.trim()) {
+    alert('Please enter a habit.')
+    return
+  }
+
+  const today = new Date().toLocaleDateString()
+
+  habits.value.push({
+    name: newHabit.value.trim(),
+    date: today
+  })
+
+  newHabit.value = ''
+}
 </script>
 
 <template>
 <table>
   <tr>Habit List</tr>
   <tr>
-    <th>Hobby</th>
+    <th>Habit</th>
     <th>Date</th>
   </tr>
-  <tr>
-    <td>Essay due</td>
-    <td>9/20/2025</td>
-  </tr>
-  <tr>
-    <td>Birthday</td>
-    <td>9/25/2025</td>
-  </tr>
-  <input type="text">
-  <button @click="test">TEST</button>
+
+    <tr v-for="(habit, index) in habits" :key="index">
+      <td>{{ habit.name }}</td>
+      <td>{{ habit.date }}</td>
+    </tr>
+  
 </table>
+<div id="form">
+  <input v-model="newHabit">
+  <button @click="addHabit">Add</button>
+</div>
+
+
 </template>
 
 <style scoped>
