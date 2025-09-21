@@ -39,18 +39,8 @@ function addHabit() {
   <input v-model="newHabit">
   <button @click="addHabit">Add</button>
 </div>
-
-
 </template>
 
 <style scoped>
-table{
-  width: 40%;
-  height: 60%;
-  border:1px solid black;
-  margin: 50px auto;
-}
-th{
-  border:1px solid black;
-}
+
 </style>
